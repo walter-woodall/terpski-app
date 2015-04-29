@@ -10,9 +10,49 @@ html, html a {
     border-radius: 0px;
 }
 
-body{
-    color: black;
+.navbar-inverse .navbar-nav>li>a {
+    font-size: 20px;
     font-family: Verdana, Geneva, sans-serif
+    font-weight: 300;
+    opacity: .7;
+    background: transparent;
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+section.home-header{
+    height: 668px;
+}
+section.about{
+    background: #dcdcdc;
+}
+section.officers{
+    background: #fff;
+}
+section.sponsors{
+    background: #dcdcdc;
+}
+nav .logo {
+  background: url('/assets/images/terpski_logo.png');
+  background-repeat: no-repeat;
+  background-size: 215px 33px;
+  width: 215px;
+  height: 33px;
+  position: relative;
+  top: 13px;
+}
+
+body{
+    font-family: Verdana, Geneva, sans-serif
+    color: #000;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 
 }
 
@@ -25,23 +65,6 @@ section.home-header video {
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-    color: #fff;
-    font-size: 20px;
-    font-family: Verdana, Geneva, sans-serif
-    font-weight: 300;
-    opacity: .7;
-    background: transparent;
-}
-
-nav .logo {
-  background: url('/assets/images/terpski_banner.jpg');
-  background-repeat: no-repeat;
-  width: 215px;
-  height: 33px;
-  position: relative;
 }
 
 .overlay {

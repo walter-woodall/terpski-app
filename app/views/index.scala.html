@@ -1,15 +1,12 @@
 @(user: User)
 
 @main(user) {
-
     <!-- Intro Section -->
-    <section class="home-header" id="homeHeader" style="height: 761px;">
+    <section class="home-header" id="homeHeader">
         <div class="overlay"></div>
-
         <video autoplay loop muted id="headerVideo" poster="@routes.Assets.at("images/whistler.png")">
         <source src="@routes.Assets.at("images/terpski_2014.mp4")" type="video/mp4">
         </video>
-
     </section>
     <!-- About Us -->
     <section class = "about" id="about">
@@ -59,5 +56,4 @@
             </div>
         </div>
     </section>
-
 }

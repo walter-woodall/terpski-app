@@ -4,42 +4,35 @@
     <div class="overlay"></div>
     <div class="container">
         @helper.form(routes.Application.authenticate) {
+
             <div class="row">
                 <h1 align="center">Sign in</h1>
             </div>
 
-            @form.globalError.map { error =>
-                <p class="error">
-                    @error.message
-                </p>
-            }
+        @form.globalError.map { error =>
+            <p class="error" style="color: red;">
+                @error.message
+            </p>
+        }
 
-            @flash.get("success").map { message =>
-                <p class="success">
-                    @message
-                </p>
-            }
-            <div class="row">
-                <form>
-                    <div class="row">
-                        <div class="form-group col-md-4 col-md-offset-4">
-                            <label for="exampleInputEmail">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email" value="@form("email").value">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-4 col-md-offset-4">
-                            <label for="exampleInputPassword">Password</label>
-                            <input type="password" class="col-md-2 form-control" id="exampleInputPassword" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-1 col-md-offset-4">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        @flash.get("success").map { message =>
+            <p class="success" style="color: red;">
+                @message
+            </p>
+        }
+
+        <div class="form-group col-md-4 col-md-offset-4">
+            <label for="inputEmail">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" id="email" value="@form("email").value">
+        </div>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="col-md-1 col-md-offset-4">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+
         }
     </div>
 }
