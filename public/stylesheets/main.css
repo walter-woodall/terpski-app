@@ -1,0 +1,64 @@
+html, html a {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+.transparent{
+    margin-bottom:0px;
+    background: transparent;
+    border: 0px;
+    border-radius: 0px;
+}
+
+body{
+    color: black;
+    font-family: Verdana, Geneva, sans-serif
+
+}
+
+section.home-header video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    font-size: 20px;
+    font-family: Verdana, Geneva, sans-serif
+    font-weight: 300;
+    opacity: .7;
+    background: transparent;
+}
+
+nav .logo {
+  background: url('/assets/images/terpski_banner.jpg');
+  background-repeat: no-repeat;
+  width: 215px;
+  height: 33px;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  z-index: -1;
+  background: url('/assets/images/whistler.png'),rgba(0,0,0,.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+}

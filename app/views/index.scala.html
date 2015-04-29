@@ -1,0 +1,63 @@
+@(user: User)
+
+@main(user) {
+
+    <!-- Intro Section -->
+    <section class="home-header" id="homeHeader" style="height: 761px;">
+        <div class="overlay"></div>
+
+        <video autoplay loop muted id="headerVideo" poster="@routes.Assets.at("images/whistler.png")">
+        <source src="@routes.Assets.at("images/terpski_2014.mp4")" type="video/mp4">
+        </video>
+
+    </section>
+    <!-- About Us -->
+    <section class = "about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>About Us</h1>
+                    <br>
+                    <p>"We, the students of the University of Maryland, College Park, in order to promote the educational, athletic, and social aspects of skiing and snowboarding, and to offer the students a chance to perpetuate the mutual benefits derived from skiing and snowboarding, do hereby establish this Constitution of the Terrapin Ski and Snowboard Club at the University of Maryland."
+                        <br>-Official Preamble </br>
+                        <br>The Terrapin Ski and Snowboard Club (a.k.a. Terpski) is the largest student run organization at the University of Maryland, College Park. Founded in 1960, Terpski has provided the students of the University of Maryland with the raddest ski trips known to man. Each year, Terpski embarks on four journeys in search of the softest snow. Terpskiers spend over 80 hours annually traveling coast to coast on a mission to find scenic views, untouched trails, lasting friendships, and the greatest of memories.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Officers -->
+    <section class="officers" id="officers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>Officers</h1>
+                    <br>
+                    <br>
+                    <p>Fill this in Shaham</p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors -->
+    <section class="sponsors" id="sponsors">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>Sponsors</h1>
+                    <img src="@routes.Assets.at("images/airborn_logo.png")" height="100" width="100">
+                    <img src="@routes.Assets.at("images/cbSports_logo.png")" height="100" width="100">
+                    <img src="@routes.Assets.at("images/elevated_logo.png")" height="100" width="100">
+                    <img src="@routes.Assets.at("images/goretex_logo.png")" height="100" width="100">
+                    <img src="@routes.Assets.at("images/kicker_logo.png")" height="100" width="100">
+                    <img src="@routes.Assets.at("images/snoSearch_logo.png")" height="100" width="100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
