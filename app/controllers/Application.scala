@@ -9,7 +9,34 @@ import models._
 import views._
 
 object Application extends Controller {
-
+  val userForm = Form(
+    mapping(
+      "email" -> email,
+      "password" -> text,
+      "userInfo" -> mapping(
+        "firstName" -> text,
+        "lastName" -> text,
+        "cellPhone" -> text,
+        "homePhone" -> text,
+        "gender" -> text,
+        "shirtSize" -> text,
+        "sport" -> text,
+        "classYear" -> text,
+        "skillLevel" -> text,
+        "reference" -> text,
+        "emergencyName" -> text,
+        "emergencyPhone" -> text,
+        "uid" -> number,
+        "age" -> number,
+        "memberYears" -> number,
+        "interestedTrips" -> list(text),
+        "roomates" -> list(text)
+      )(UserInfo.apply)(UserInfo.unapply),
+      "isAdmin" -> optional(boolean),
+      "deposit" -> optional(boolean),
+      "active" -> optional(boolean)
+    )(User.apply)(User.unapply)
+  )
   val loginForm = Form(
     tuple(
       "email" -> text,
@@ -42,6 +69,17 @@ object Application extends Controller {
   def logout = Action {
     Redirect(routes.Application.login).withNewSession.flashing(
       "success" -> "You've been logged out"
+    )
+  }
+
+  def create = Action { implicit request =>
+    Ok(html.create(userForm, null))
+  }
+
+  def createUser = Action { implicit request =>
+    userForm.bindFromRequest.fold(
+      formWithErrors => BadRequest(html.create(formWithErrors, null)),
+      user => Redirect(routes.Application.index).withSession("email" -> user.email)
     )
   }
 

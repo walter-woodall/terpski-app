@@ -8,27 +8,30 @@ import anorm.SqlParser._
 /**
  * Created by walterwoodall on 4/28/15.
  */
+case class UserInfo (firstName: String,
+                      lastName: String,
+                      cellPhone: String,
+                      homePhone: String,
+                      gender: String,
+                      shirtSize: String,
+                      sport: String,
+                      classYear: String,
+                      skillLevel: String,
+                      reference: String,
+                      emergencyName: String,
+                      emergencyPhone: String,
+                      uid: Int,
+                      age: Int,
+                      memberYears: Int,
+                      interestedTrips: List[String],
+                      roomates: List[String])
+
 case class User ( email: String,
                   password: String,
-                  firstName: String,
-                  lastName: String,
-                  uid: Int,
-                  cellPhone: String,
-                  homePhone: String,
-                  emergencyName: String,
-                  emergencyPhone: String,
-                  age: Int,
-                  memberYears: Int,
-                  gender: String,
-                  shirtSize: String,
-                  sport: String,
-                  classYear: String,
-                  skillLevel: String,
-                  reference: String,
-                  //trips: List[String],
-                  isAdmin: Boolean,
-                  deposit: Boolean,
-                  active: Boolean)
+                  personalInfo: UserInfo,
+                  isAdmin: Option[Boolean],
+                  deposit: Option[Boolean],
+                  active: Option[Boolean])
 
 object User {
 
@@ -58,11 +61,11 @@ object User {
       get[Boolean]("users.active") map {
       case email~password~firstName~lastName~uid~cellPhone~homePhone~emergencyName~emergencyPhone~
         age~memberYears~gender~shirtSize~sport~classYear~skillLevel~reference~admin~deposit~active =>
-        User(email, password, firstName, lastName, uid, cellPhone, homePhone, emergencyName, emergencyPhone,
-          age, memberYears, gender, shirtSize, sport, classYear, skillLevel, reference, admin, deposit, active)
+        User(email, password, UserInfo(firstName, lastName, cellPhone, homePhone, gender, shirtSize, sport, classYear,
+          skillLevel, reference, emergencyName, emergencyPhone, uid, age, memberYears, null, null),
+          Some(admin), Some(deposit), Some(active))
     }
   }
-
   // -- Queries
 
   /**
@@ -118,21 +121,21 @@ object User {
       ).on(
           'email -> user.email,
           'password -> user.password,
-          'firstName -> user.firstName,
-          'lastName -> user.lastName,
-          'uid -> user.uid,
-          'cellPhone -> user.cellPhone,
-          'homePhone -> user.homePhone,
-          'emergencyName -> user.emergencyName,
-          'emergencyPhone -> user.emergencyPhone,
-          'age -> user.age,
-          'memberYears -> user.memberYears,
-          'gender -> user.gender,
-          'shirtSize -> user.shirtSize,
-          'sport -> user.sport,
-          'classYear -> user.classYear,
-          'skillLevel -> user.skillLevel,
-          'reference -> user.reference,
+          'firstName -> user.personalInfo.firstName,
+          'lastName -> user.personalInfo.lastName,
+          'uid -> user.personalInfo.uid,
+          'cellPhone -> user.personalInfo.cellPhone,
+          'homePhone -> user.personalInfo.homePhone,
+          'emergencyName -> user.personalInfo.emergencyName,
+          'emergencyPhone -> user.personalInfo.emergencyPhone,
+          'age -> user.personalInfo.age,
+          'memberYears -> user.personalInfo.memberYears,
+          'gender -> user.personalInfo.gender,
+          'shirtSize -> user.personalInfo.shirtSize,
+          'sport -> user.personalInfo.sport,
+          'classYear -> user.personalInfo.classYear,
+          'skillLevel -> user.personalInfo.skillLevel,
+          'reference -> user.personalInfo.reference,
           'isAdmin -> user.isAdmin,
           'deposit -> user.deposit,
           'active -> user.active
