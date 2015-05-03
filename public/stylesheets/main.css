@@ -12,7 +12,7 @@ html, html a {
 
 .navbar-inverse .navbar-nav>li>a {
     font-size: 20px;
-    font-family: Verdana, Geneva, sans-serif
+    font-family: Verdana, Geneva, sans-serif;
     font-weight: 300;
     opacity: .7;
     background: transparent;
@@ -23,14 +23,12 @@ html, html a {
     -1px 1px 0 #fff,
     1px 1px 0 #fff;
 }
-section.home-header{
-    height: 668px;
-}
+
 section.about{
     background: #dcdcdc;
 }
 section.officers{
-    background: #fff;
+    background: #000;
 }
 section.sponsors{
     background: #dcdcdc;
@@ -46,7 +44,7 @@ nav .logo {
 }
 
 body{
-    font-family: Verdana, Geneva, sans-serif
+    font-family: Verdana, Geneva, sans-serif;
     color: #000;
     text-shadow:
     -1px -1px 0 #fff,
@@ -99,4 +97,14 @@ section.home-header video {
   background-size: cover;
   min-width: 100%;
   min-height: 100%;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      height: 460px;
+      width: 460px;
+      margin: auto;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none
 }

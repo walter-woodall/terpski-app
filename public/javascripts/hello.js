@@ -1,3 +1,6 @@
-if (window.console) {
-  console.log("Welcome to your Play application's JavaScript!");
-}
+vph = $(window).height()
+vpw = $(window).width()
+
+$(function() {
+  $("section.home-header").height(vph);
+});
