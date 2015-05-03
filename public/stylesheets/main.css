@@ -25,12 +25,14 @@ html, html a {
 }
 
 section.about{
+    height: 468px;
     background: #dcdcdc;
 }
 section.officers{
-    background: #000;
+    background: #595959;
 }
 section.sponsors{
+    height: 400px
     background: #dcdcdc;
 }
 nav .logo {
