@@ -97,6 +97,18 @@ object Application extends Controller {
     }
   }
 
+  def trips = Action { implicit request =>
+    request.session.get("email").map { email =>
+      User.findByEmail(email).map { user =>
+        Ok(html.trip(user))
+      }.getOrElse {
+        Ok(html.trip(null))
+      }
+    }.getOrElse {
+      Ok(html.trip(null))
+    }
+  }
+
 }/**
  * Provide security features
  */
