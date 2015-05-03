@@ -85,3 +85,18 @@ section.home-header video {
   min-width: 100%;
   min-height: 100%;
 }
+.create {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url('/assets/images/whistler.png'),rgba(0,0,0,.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+}

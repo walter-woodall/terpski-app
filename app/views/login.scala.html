@@ -1,7 +1,7 @@
 @(form: Form[(String,String)], user: User)(implicit flash: Flash)
 
 @main(user){
-    <div class="overlay"></div>
+    <div class="create"></div>
     <div class="container">
         @helper.form(routes.Application.authenticate) {
 
@@ -9,33 +9,35 @@
                 <h1 align="center">Sign in</h1>
             </div>
 
-        @form.globalError.map { error =>
-            <p class="error" style="color: red;">
-                @error.message
-            </p>
-        }
+            @form.globalError.map { error =>
+                <p class="error" style="color: red;">
+                    @error.message
+                </p>
+            }
 
-        @flash.get("success").map { message =>
-            <p class="success" style="color: red;">
-                @message
-            </p>
+            @flash.get("success").map { message =>
+                <p class="success" style="color: red;">
+                    @message
+                </p>
+            }
+            <div class="row">
+                <div class="form-group col-md-4 col-md-offset-4">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" id="email" value="@form("email").value">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4 col-md-offset-4">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-5">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <a href="/create" class="btn btn-default">Sign Up</a>
+                </div>
+            </div>
         }
-
-        <div class="form-group col-md-4 col-md-offset-4">
-            <label for="inputEmail">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" id="email" value="@form("email").value">
-        </div>
-        <div class="form-group col-md-4 col-md-offset-4">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-        </div>
-        <div class="col-md-1 col-md-offset-4">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-
-        }
-        <form action="/create">
-            <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
     </div>
 }

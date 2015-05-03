@@ -1,11 +1,11 @@
 @(form: Form[User], user: User)(implicit flash: Flash)
 
 @main(user){
+    <div class="create"></div>
     <div class="container">
         <div class="row">
             <h1 align="center">Create User</h1>
         </div>
-        <div class="row">
             @helper.form(routes.Application.createUser){
 
                 @form.globalError.map { error =>
@@ -19,229 +19,224 @@
                         @message
                     </p>
                 }
-                <!-- Username and Password Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_email" for="email" class="col-sm-4 control-label">Email</label>
-
-                        <div class="col-sm-4">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="" required="true">
+                <fieldset>
+                    <div class="row">
+                    <!-- Username and Password Inputs -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_email" for="email" class="control-label">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_password" for="password" class="control-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="" required="true">
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label id="lbl_password" for="password" class="col-sm-4 control-label">Password</label>
+                </fieldset>
 
-                        <div class="col-sm-4">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="" required="true">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <!-- FirstName and LastName Inputs -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_firstName" for="userInfo.firstName" class="control-label">First Name</label>
+                                <input type="text" class="form-control" name="userInfo.firstName" id="userInfo.firstName" placeholder="" required="true">
+                            </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_lastName" for="userInfo.lastName" class="control-label">LastName</label>
+                                <input type="text" class="form-control" name="userInfo.lastName" id="userInfo.lastName" placeholder="" required="true">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Phone Inputs -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_cellPhone" for="userInfo.cellPhone" class="control-label">Cell Phone</label>
+                                <input type="text" class="form-control" name="userInfo.cellPhone" id="userInfo.cellPhone" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_homePhone" for="userInfo.homePhone" class="control-label">Home Phone</label>
+                                <input type="text" class="form-control" name="userInfo.homePhone" id="userInfo.homePhone" placeholder="" required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gender/ShirtSize/Age/MemberYears Inputs -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label id="lbl_gender" for="userInfo.gender" class="control-label">Gender</label>
+
+                                <select class="form-control" id="userInfo.gender" name="userInfo.gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label id="lbl_shirtSize" for="userInfo.shirtSize" class="control-label">Shirt Size</label>
+
+                                <select class="form-control" id="userInfo.shirtSize" name="userInfo.shirtSize">
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label id="lbl_age" for="userInfo.age" class="control-label">Age</label>
+                                <input type="number" class="form-control" name="userInfo.age" id="userInfo.age" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label id="lbl_memberYears" for="userInfo.memberYears" class="control-label">Years as member?</label>
+                                <input type="number" class="form-control" name="userInfo.memberYears" id="userInfo.memberYears" placeholder="" required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UID/ClassYear/Reference Inputs -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label id="lbl_uid" for="userInfo.uid" class="control-label">UID</label>
+                                <input type="number" class="form-control" name="userInfo.uid" id="userInfo.uid" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label id="lbl_classYear" for="userInfo.classYear" class="control-label">Class Year</label>
+
+                                <select class="form-control" id="userInfo.classYear" name="userInfo.classYear">
+                                    <option>Freshman</option>
+                                    <option>Sophmore</option>
+                                    <option>Junior</option>
+                                    <option>Senior</option>
+                                    <option>Other(5th year represent)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label id="lbl_reference" for="userInfo.reference" class="control-label">How did you hear about us?</label>
+
+                                <select class="form-control" id="userInfo.reference" name="userInfo.reference">
+                                    <option>First Look Fair</option>
+                                    <option>Previous Member</option>
+                                    <option>Friend</option>
+                                    <option>Flyers</option>
+                                    <option>Facebook</option>
+                                    <option>Web Search</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Level and Reference Inputs -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_sport" for="userInfo.sport" class="control-label">Sport</label>
+
+                                <select class="form-control" id="userInfo.sport" name="userInfo.sport">
+                                    <option>Snowboard</option>
+                                    <option>Ski</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_skillLevel" for="userInfo.skillLevel" class="control-label">Skill Level</label>
+
+                                <select class="form-control" id="userInfo.skillLevel" name="userInfo.skillLevel">
+                                    <option>Never been before</option>
+                                    <option>Beginner</option>
+                                    <option>Intermediate</option>
+                                    <option>Advanced</option>
+                                    <option>Expert</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Emergency Contact Information</legend>
+                    <!-- Emergency Contact Info -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_emergencyName" for="userInfo.emergencyName" class="control-label">Name</label>
+                                <input type="text" class="form-control" name="userInfo.emergencyName" id="userInfo.emergencyName" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label id="lbl_emergencyPhone" for="userInfo.emergencyPhone" class="control-label">Phone Number</label>
+                                <input type="text" class="form-control" name="userInfo.emergencyPhone" id="userInfo.emergencyPhone" placeholder="" required="true">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Roomate Preferences</legend>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <button type="submit" class="btn btn-primary form-control">Submit</button>
                     </div>
                 </div>
-
-                <legend class="col-sm-12">Personal Information</legend>
-                <!-- FirstName and LastName Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_firstName" for="userInfo.firstName" class="col-sm-4 control-label">First Name</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.firstName" id="userInfo.firstName" placeholder="" required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl_lastName" for="userInfo.lastName" class="col-sm-4 control-label">LastName</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.lastName" id="userInfo.lastName" placeholder="" required="true">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phone Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_cellPhone" for="userInfo.cellPhone" class="col-sm-4 control-label">Cell Phone</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.cellPhone" id="userInfo.cellPhone" placeholder="" required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl_homePhone" for="userInfo.homePhone" class="col-sm-4 control-label">Home Phone</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.homePhone" id="userInfo.homePhone" placeholder="" required="true">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gender and Shirt Size Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_gender" for="userInfo.gender" class="col-sm-4 control-label">Gender</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.gender" name="userInfo.gender">
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="lbl_shirtSize" for="userInfo.shirtSize" class="col-sm-4 control-label">Shirt Size</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.shirtSize" name="userInfo.shirtSize">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                                <option>XXL</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sport and Class Year Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_sport" for="userInfo.sport" class="col-sm-4 control-label">Sport</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.sport" name="userInfo.sport">
-                                <option>Snowboard</option>
-                                <option>Ski(For Pussys)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="lbl_classYear" for="userInfo.classYear" class="col-sm-4 control-label">Class Year</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.classYear" name="userInfo.classYear">
-                                <option>Freshman (Bitch)</option>
-                                <option>Sophmore</option>
-                                <option>Junior</option>
-                                <option>Senior</option>
-                                <option>Other(5th year represent)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Age and UID -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_age" for="userInfo.age" class="col-sm-4 control-label">Age</label>
-
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" name="userInfo.age" id="userInfo.age" placeholder="" required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl_uid" for="userInfo.uid" class="col-sm-4 control-label">UID</label>
-
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" name="userInfo.uid" id="userInfo.uid" placeholder="" required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl_memberYears" for="userInfo.memberYears" class="col-sm-4 control-label">Years as member?</label>
-
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control" name="userInfo.memberYears" id="userInfo.memberYears" placeholder="" required="true">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Level and Reference Inputs -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_skillLevel" for="userInfo.skillLevel" class="col-sm-4 control-label">Skill Level</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.skillLevel" name="userInfo.skillLevel">
-                                <option>Never been before</option>
-                                <option>Beginner</option>
-                                <option>Intermediate</option>
-                                <option>Advanced</option>
-                                <option>Expert</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="lbl_reference" for="userInfo.reference" class="col-sm-4 control-label">How did you hear about us?</label>
-
-                        <div class="col-sm-6">
-                            <select class="form-control" id="userInfo.reference" name="userInfo.reference">
-                                <option>First Look Fair</option>
-                                <option>Previous Member</option>
-                                <option>Friend</option>
-                                <option>Flyers</option>
-                                <option>Facebook</option>
-                                <option>Web Search</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <legend class="col-sm-12">Emergency Contact Information</legend>
-                <!-- Emergency Contact Info -->
-                <div class="form-inline">
-                    <div class="form-group">
-                        <label id="lbl_emergencyName" for="userInfo.emergencyName" class="col-sm-4 control-label">Name</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.emergencyName" id="userInfo.emergencyName" placeholder="" required="true">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl_emergencyPhone" for="userInfo.emergencyPhone" class="col-sm-4 control-label">Phone Number</label>
-
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="userInfo.emergencyPhone" id="userInfo.emergencyPhone" placeholder="" required="true">
-                        </div>
-                    </div>
-                </div>
-
-                <legend class="col-sm-12">Other Information</legend>
-                <!-- Roomate Preferences and Interested Trips -->
-                <div class="form-group">
-                    <label id="lbl_trips" for="userInfo.interestedTrips" class="col-sm-4 control-label">Which trips are you interested in?</label>
-
-                    <div class="col-sm-8">
-                        <select multiple class="form-control" id="userInfo.interestedTrips" name="userInfo.interestedTrips">
-                            <option>Quebec City/ New Years</option>
-                            <option>Killington Weekend</option>
-                            <option>Killington Week</option>
-                            <option>Whistler</option>
-                            <option>Weekend Trips</option>
-                            <option>Spring Break</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label id="lbl_roomates" class="col-sm-4 control-label">Roomate Preferences</label>
-
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="true">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="userInfo.roomates" placeholder="" required="false">
-                    </div>
-                </div>
-
-                <div class="col-md-1 col-md-offset-4">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-
             }
-        </div>
     </div>
 }

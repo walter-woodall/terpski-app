@@ -23,7 +23,6 @@ case class UserInfo (firstName: String,
                       uid: Int,
                       age: Int,
                       memberYears: Int,
-                      interestedTrips: List[String],
                       roomates: List[String])
 
 case class User ( email: String,
@@ -56,14 +55,14 @@ object User {
       get[String]("users.class_year") ~
       get[String]("users.skill_level") ~
       get[String]("users.reference") ~
-      get[Boolean]("users.is_admin") ~
-      get[Boolean]("users.deposit") ~
-      get[Boolean]("users.active") map {
+      get[Option[Boolean]]("users.is_admin") ~
+      get[Option[Boolean]]("users.deposit") ~
+      get[Option[Boolean]]("users.active") map {
       case email~password~firstName~lastName~uid~cellPhone~homePhone~emergencyName~emergencyPhone~
         age~memberYears~gender~shirtSize~sport~classYear~skillLevel~reference~admin~deposit~active =>
         User(email, password, UserInfo(firstName, lastName, cellPhone, homePhone, gender, shirtSize, sport, classYear,
-          skillLevel, reference, emergencyName, emergencyPhone, uid, age, memberYears, null, null),
-          Some(admin), Some(deposit), Some(active))
+          skillLevel, reference, emergencyName, emergencyPhone, uid, age, memberYears, null),
+          admin, deposit, active)
     }
   }
   // -- Queries

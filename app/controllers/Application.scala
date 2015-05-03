@@ -29,7 +29,6 @@ object Application extends Controller {
         "uid" -> number,
         "age" -> number,
         "memberYears" -> number,
-        "interestedTrips" -> list(text),
         "roomates" -> list(text)
       )(UserInfo.apply)(UserInfo.unapply),
       "isAdmin" -> optional(boolean),
@@ -79,7 +78,10 @@ object Application extends Controller {
   def createUser = Action { implicit request =>
     userForm.bindFromRequest.fold(
       formWithErrors => BadRequest(html.create(formWithErrors, null)),
-      user => Redirect(routes.Application.index).withSession("email" -> user.email)
+      user => {
+        val account = User.create(user)
+        Redirect(routes.Application.index).withSession("email" -> account.email)
+      }
     )
   }
 
