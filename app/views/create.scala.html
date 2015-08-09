@@ -1,27 +1,26 @@
 @(form: Form[User], user: User)(implicit flash: Flash)
 
 @main(user){
-    <div class="create"></div>
-    <div class="container">
-        <div class="row">
-            <h1 align="center">Create User</h1>
-        </div>
-            @helper.form(routes.Application.createUser){
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                @helper.form(routes.Application.createUser){
 
                 @form.globalError.map { error =>
-                    <p class="error" style="color: red;">
-                        @error.message
-                    </p>
+                <p class="error" style="color: red;">
+                    @error.message
+                </p>
                 }
 
                 @flash.get("success").map { message =>
-                    <p class="success" style="color: red;">
-                        @message
-                    </p>
+                <p class="success" style="color: red;">
+                    @message
+                </p>
                 }
+                <h3>Sign Up</h3>
                 <fieldset>
                     <div class="row">
-                    <!-- Username and Password Inputs -->
+                        <!-- Username and Password Inputs -->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label id="lbl_email" for="email" class="control-label">Email</label>
@@ -194,7 +193,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!--
                 <fieldset>
                     <legend>Roomate Preferences</legend>
                     <div class="row">
@@ -232,11 +231,14 @@
                         </div>
                     </div>
                 </fieldset>
+                -->
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <button type="submit" class="btn btn-primary form-control">Submit</button>
                     </div>
                 </div>
-            }
-    </div>
+                }
+            </div>
+        </div>
+    </header>
 }
