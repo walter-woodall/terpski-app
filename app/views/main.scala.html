@@ -55,7 +55,13 @@
                             <a class="page-scroll" href="/#about">About</a>
                         </li>
                         <li class="dropdown">
-                            <a class="page-scroll" href="/#trips">Trips</a>
+                            <a class="dropdown-toggle" data-toggle="dropdown">Trips</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/trips/kill_weekend">Killington Weekend</a></li>
+                                <li><a href="/trips/quebec">Quebec City</a></li>
+                                <li><a href="/trips/jackson_hole">Jackson Hole</a></li>
+                                <li><a href="/trips/kill_week">Killington Week</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a class="page-scroll" href="/#officers">Officers</a>
@@ -67,7 +73,11 @@
                             <a class="page-scroll" href="/#sponsors">Sponsors</a>
                         </li>
                         <li>
-                            <a href="/login">Login</a>
+                            @if(user == null){
+                                <a href="/login">Login</a>
+                            }else{
+                                <a href="/logout">Logout</a>
+                            }
                         </li>
                     </ul>
                 </div>
