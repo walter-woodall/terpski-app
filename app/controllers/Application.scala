@@ -97,15 +97,39 @@ object Application extends Controller {
     }
   }
 
-  def trips = Action { implicit request =>
+  def trips(name: String) = Action { implicit request =>
     request.session.get("email").map { email =>
       User.findByEmail(email).map { user =>
-        Ok(html.trip(user))
+        if(name.equals("kill_weekend")){
+          Ok(html.trip1(user))
+        }else if(name.equals("quebec")){
+          Ok(html.trip2(user))
+        }else if(name.equals("jackson_hole")){
+          Ok(html.trip3(user))
+        }else{
+          Ok(html.trip4(user))
+        }
       }.getOrElse {
-        Ok(html.trip(null))
+        if(name.equals("kill_weekend")){
+          Ok(html.trip1(null))
+        }else if(name.equals("quebec")){
+          Ok(html.trip2(null))
+        }else if(name.equals("jackson_hole")){
+          Ok(html.trip3(null))
+        }else{
+          Ok(html.trip4(null))
+        }
       }
     }.getOrElse {
-      Ok(html.trip(null))
+      if(name.equals("kill_weekend")){
+        Ok(html.trip1(null))
+      }else if(name.equals("quebec")){
+        Ok(html.trip2(null))
+      }else if(name.equals("jackson_hole")){
+        Ok(html.trip3(null))
+      }else{
+        Ok(html.trip4(null))
+      }
     }
   }
 
