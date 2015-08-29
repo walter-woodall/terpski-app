@@ -1,8 +1,0 @@
-This is your new Play application
-=================================
-
-This project contains the application for the University of Maryland Ski and Snowboard Club (Terpski)
-
-Simple CRUD Web App currently but will be updated to provide additinal features to club officers to streamline clib processes.
-
-This file will be packaged with your application, when using `activator dist`.

@@ -1,7 +1,7 @@
 
 #terpski-app
 
-This project contains the application for the __University of Maryland Ski and Snowboard Club__ *[Terpski](http://umd.orgsync.com/org/terpski/)*
+This project contains the application for the __University of Maryland Ski and Snowboard Club__ *[Terpski](http://dev.terpski.com)*
 
 Simple *CRUD* Web App currently but will be updated to provide additional features to club officers to streamline club processes.
 
