@@ -88,12 +88,12 @@ object Application extends Controller {
   def index = Action { implicit request =>
     request.session.get("email").map { email =>
       User.findByEmail(email).map { user =>
-        Ok(html.index2(user))
+        Ok(html.index(user))
       }.getOrElse {
-        Ok(html.index2(null))
+        Ok(html.index(null))
       }
     }.getOrElse {
-      Ok(html.index2(null))
+      Ok(html.index(null))
     }
   }
 

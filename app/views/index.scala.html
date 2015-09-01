@@ -1,129 +1,229 @@
 @(user: User)
 
 @main(user) {
-    <!-- Intro Section -->
-    <section class="home-header" id="homeHeader">
-        <div class="overlay"></div>
-        <video autoplay loop muted id="headerVideo">
-        <source src="@routes.Assets.at("images/terpski_2014.mp4")" type="video/mp4">
-        </video>
-    </section>
-    <!-- About Us -->
-    <section class = "about" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1>About Us</h1>
-                    <br>
-                    <p>"We, the students of the University of Maryland, College Park, in order to promote the educational, athletic, and social aspects of skiing and snowboarding, and to offer the students a chance to perpetuate the mutual benefits derived from skiing and snowboarding, do hereby establish this Constitution of the Terrapin Ski and Snowboard Club at the University of Maryland."
-                        <br>-Official Preamble </br>
-                        <br>The Terrapin Ski and Snowboard Club (a.k.a. Terpski) is the largest student run organization at the University of Maryland, College Park. Founded in 1960, Terpski has provided the students of the University of Maryland with the raddest ski trips known to man. Each year, Terpski embarks on four journeys in search of the softest snow. Terpskiers spend over 80 hours annually traveling coast to coast on a mission to find scenic views, untouched trails, lasting friendships, and the greatest of memories.
-                    </p>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Come Join Us Fall 2015</h1>
+            <hr>
+            <p>Terpski is the largest student club on campus. Whether its shredding some gnar or throwing the best parties we always have a good time.</p>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+        </div>
+    </div>
+</header>
+
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">About Terpski</h2>
+                <hr class="light">
+                <p class="text-faded">The Terrapin Ski and Snowboard Club (a.k.a. Terpski) is the largest student run organization at the University of Maryland, College Park. Founded in 1960, Terpski has provided the students of the University of Maryland with the raddest ski trips known to man. Each year, Terpski embarks on four journeys in search of the softest snow. Terpskiers spend over 80 hours annually traveling coast to coast on a mission to find scenic views, untouched trails, lasting friendships, and the greatest of memories.
+                </p>
+                <a href="#trips" class="btn btn-default btn-xl page-scroll">Trips!</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="trips">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Trips this Year</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="/trips/kill_weekend" class="icon">
+                        <i href="/trips" class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                    </a>
+                    <h3>Killington Weekend</h3>
+                    <p class="text-muted">A great break right before finals. Catch the first snow of the year!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="/trips/quebec" class="icon">
+                        <i class="fa fa-4x fa-beer wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                    </a>
+                    <h3>Quebec City</h3>
+                    <p class="text-muted">Our most popular trip. Come and find out why.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="/trips/jackson_hole" class="icon">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    </a>
+                    <h3>Jackson Hole</h3>
+                    <p class="text-muted">Its Jackson Hole. One of the best mountains in the world. Enough said.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="/trips/kill_week" class="icon">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                    </a>
+                    <h3>Killington Week</h3>
+                    <p class="text-muted">Highly underrated but if you want to ski and party nothing beats Killington Week</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Officers -->
-    <section class="officers" id="officers">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>Officers</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="false">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                        <li data-target="#myCarousel" data-slide-to="4"></li>
-                        <li data-target="#myCarousel" data-slide-to="5"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-
-                        <div class="item active">
-                            <img src="@routes.Assets.at("images/carlos.png")" alt="Chania">
-                            <div class="carousel-caption">
-                                <h3>Carlos Smith</h3>
-                                <h4>President</h4>
+<section class="no-padding" id="officers">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/Dennis.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                President
                             </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="@routes.Assets.at("images/dennis.png")" alt="Chania">
-                            <div class="carousel-caption">
-                                <h3>Dennis Millet</h3>
-                                <h4>Vice President</h4>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="@routes.Assets.at("images/shaham.png")" alt="Flower">
-                            <div class="carousel-caption">
-                                <h3>Michael Shaham</h3>
-                                <h4>Secretary</h4>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="@routes.Assets.at("images/james.png")" alt="Flower">
-                            <div class="carousel-caption">
-                                <h3>James Davidson</h3>
-                                <h4>aka Dino Arms aka Crazy Eyes</h4>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="@routes.Assets.at("images/jj.png")" alt="Flower">
-                            <div class="carousel-caption">
-                                <h3>JJ “Lets Play” Janov</h3>
-                                <h4>Treasurer</h4>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <img src="@routes.Assets.at("images/jess.png")" alt="Flower">
-                            <div class="carousel-caption">
-                                <h3>Jess Greiner</h3>
-
+                            <div class="project-name">
+                                Dennis Millet
                             </div>
                         </div>
                     </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/James.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Vice President
+                            </div>
+                            <div class="project-name">
+                                James Davidson
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/shaham.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Treasurer
+                            </div>
+                            <div class="project-name">
+                                Michael Shaham
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/allia.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Secretary
+                            </div>
+                            <div class="project-name">
+                                Allia Ruparellia
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/Jorge.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Fundraising Chair
+                            </div>
+                            <div class="project-name">
+                                Jorge Richardson
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box">
+                    <img src="@routes.Assets.at("images/portfolio/caeli.png")" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Digital Media Chair
+                            </div>
+                            <div class="project-name">
+                                Caeli Tracey
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sponsors -->
-    <section class="sponsors" id="sponsors">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1>Sponsors</h1>
-                    <img src="@routes.Assets.at("images/airborn_logo.png")" height="100" width="100">
-                    <img src="@routes.Assets.at("images/cbSports_logo.png")" height="100" width="100">
-                    <img src="@routes.Assets.at("images/elevated_logo.png")" height="100" width="100">
-                    <img src="@routes.Assets.at("images/goretex_logo.png")" height="100" width="100">
-                    <img src="@routes.Assets.at("images/kicker_logo.png")" height="100" width="100">
-                    <img src="@routes.Assets.at("images/snoSearch_logo.png")" height="100" width="100">
-                </div>
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>Check out our vidoes!</h2>
+            <a href="https://www.youtube.com/watch?v=lgMx1oher44">
+                <i class="fa fa-youtube-play fa-5x wow bounceIn" data-wow-delay=".3s"></i>
+            </a>
+        </div>
+    </div>
+</aside>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Let's Get In Touch!</h2>
+                <hr class="primary">
+                <p>Ready to start your next project with us? Sign up on the site or come to a weekly meeting. Still have questions? Reach out to us by email or phone</p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-2 text-center">
+                <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                <p>410-689-5339</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                <p><a href="mailto:officers@@terpski.com">officers@@terpski.com</a></p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<section class="bg-dark" id="sponsors">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Sponsors</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img src="@routes.Assets.at("images/airborn_logo.png")" height="100" width="100">
+                <img src="@routes.Assets.at("images/cbSports_logo.png")" height="100" width="100">
+                <img src="@routes.Assets.at("images/elevated_logo.png")" height="100" width="100">
+                <img src="@routes.Assets.at("images/goretex_logo.png")" height="100" width="100">
+                <img src="@routes.Assets.at("images/kicker_logo.png")" height="100" width="100">
+                <img src="@routes.Assets.at("images/snoSearch_logo.png")" height="100" width="100">
+            </div>
+        </div>
+    </div>
+</section>
 }
