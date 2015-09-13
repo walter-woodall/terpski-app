@@ -29,7 +29,7 @@ case class User ( email: String,
                   password: String,
                   personalInfo: UserInfo,
                   isAdmin: Option[Boolean],
-                  deposit: Option[Boolean],
+                  deposit: Option[String],
                   active: Option[Boolean])
 
 object User {
@@ -56,7 +56,7 @@ object User {
       get[String]("users.skill_level") ~
       get[String]("users.reference") ~
       get[Option[Boolean]]("users.is_admin") ~
-      get[Option[Boolean]]("users.deposit") ~
+      get[Option[String]]("users.deposit") ~
       get[Option[Boolean]]("users.active") map {
       case email~password~firstName~lastName~uid~cellPhone~homePhone~emergencyName~emergencyPhone~
         age~memberYears~gender~shirtSize~sport~classYear~skillLevel~reference~admin~deposit~active =>
@@ -103,7 +103,19 @@ object User {
         ).as(User.simple.singleOpt)
     }
   }
-
+  def updateDeposit(user: User, checkoutId: String): Unit ={
+    DB.withConnection { implicit connection =>
+      SQL(
+        """
+         update users set deposit = {checkoutId} where
+         email = {email}
+        """
+      ).on(
+          'email -> user.email,
+          'checkoutId -> checkoutId
+        ).executeUpdate()
+    }
+  }
   /**
    * Create a User.
    */

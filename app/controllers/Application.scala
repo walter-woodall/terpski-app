@@ -35,7 +35,7 @@ object Application extends Controller {
         "roomates" -> list(text)
       )(UserInfo.apply)(UserInfo.unapply),
       "isAdmin" -> optional(boolean),
-      "deposit" -> optional(boolean),
+      "deposit" -> optional(text),
       "active" -> optional(boolean)
     )(User.apply)(User.unapply)
   )
@@ -143,6 +143,19 @@ object Application extends Controller {
         val currentDate = format.format(Calendar.getInstance().getTime)
         val trip = new Trip(user.email, user.personalInfo.firstName + " " + user.personalInfo.lastName, tripName, paymentType, currentDate, checkoutId)
         Trip.create(trip)
+        Redirect(routes.Application.index).flashing("success" -> "We received your payment")
+      }.getOrElse{
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact Terpski if you made a payment so we can verify manually")
+      }
+    }.getOrElse{
+      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact Terpski if you made a payment so we can verify manually")
+    }
+  }
+
+  def deposit(checkoutId: String) = Action {implicit request =>
+    request.session.get("email").map { email =>
+      User.findByEmail(email).map { user =>
+        User.updateDeposit(user, checkoutId)
         Redirect(routes.Application.index).flashing("success" -> "We received your payment")
       }.getOrElse{
         Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact Terpski if you made a payment so we can verify manually")
