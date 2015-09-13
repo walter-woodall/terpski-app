@@ -133,6 +133,18 @@ object Application extends Controller {
     }
   }
 
+  def payment(tripName: String, paymentType: String, checkoutId: String) = Action {implicit request =>
+    request.session.get("email").map { email =>
+      User.findByEmail(email).map { user =>
+        Ok(html.trip4(null))
+      }.getOrElse{
+        Ok(html.trip4(null))
+      }
+    }.getOrElse{
+      Ok(html.trip4(null))
+    }
+  }
+
 }/**
  * Provide security features
  */
