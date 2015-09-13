@@ -24,12 +24,18 @@
                     @if(user == null){
                         <a class="btn btn-default btn-xl" href="/login">Sign in to Pay</a>
                     }else{
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1804" id="everbutton-1804-1441150987-94">
-                            Pay Jackson Hole Deposit
-                        </a>
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1808" id="everbutton-1808-1441151071-14">
-                            Pay Jackson Hole Final Payment
-                        </a>
+                        @if(user.deposit.isEmpty){
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1799" id="everbutton-1806-1411616634-81">
+                                Become a Member
+                            </a>
+                        }else{
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1804" id="everbutton-1804-1441150987-94">
+                                Pay Jackson Hole Deposit
+                            </a>
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1808" id="everbutton-1808-1441151071-14">
+                                Pay Jackson Hole Final Payment
+                            </a>
+                        }
                     }
                 </div>
             </div>

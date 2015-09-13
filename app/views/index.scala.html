@@ -16,11 +16,11 @@
             <h1>Come Join Us Fall 2015</h1>
             <hr>
             <p>Terpski is the largest student club on campus. Whether its shredding some gnar or throwing the best parties we always have a good time.</p>
-            @if(user == null){
+            @if(user == null || !user.deposit.isEmpty){
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             }else{
                 <a class="btn btn-primary btn-xl" href="https://www.everbutton.com/pay/1799" id="everbutton-1806-1411616634-81">
-                    Pay Membership Fees
+                    Become a Member
                 </a>
             }
         </div>

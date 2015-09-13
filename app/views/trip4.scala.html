@@ -24,12 +24,18 @@
                     @if(user == null){
                         <a class="btn btn-default btn-xl" href="/login">Sign in to Pay</a>
                     }else{
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1803" id="everbutton-1803-1441151141-5">
-                            Pay Killington Week Deposit
-                        </a>
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1807" id="everbutton-1807-1441151196-9">
-                            Pay Killington Week Final Payment
-                        </a>
+                        @if(user.deposit.isEmpty){
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1799" id="everbutton-1806-1411616634-81">
+                                Become a Member
+                            </a>
+                        }else{
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1803" id="everbutton-1803-1441151141-5">
+                                Pay Killington Week Deposit
+                            </a>
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1807" id="everbutton-1807-1441151196-9">
+                                Pay Killington Week Final Payment
+                            </a>
+                        }
                     }
                 </div>
             </div>

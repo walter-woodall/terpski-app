@@ -24,12 +24,18 @@
                     @if(user == null){
                         <a class="btn btn-default btn-xl" href="/login">Sign in to Pay</a>
                     }else{
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1805" id="everbutton-1805-1441150577-6">
-                            Pay Quebec City Deposit
-                        </a>
-                        <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1756" id="everbutton-1806-1411616634-81">
-                            Pay Quebec City Final Payment
-                        </a>
+                        @if(user.deposit.isEmpty){
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1799" id="everbutton-1806-1411616634-81">
+                                Become a Member
+                            </a>
+                        }else{
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1805" id="everbutton-1805-1441150577-6">
+                                Pay Quebec City Deposit
+                            </a>
+                            <a class="btn btn-default btn-xl" href="https://www.everbutton.com/pay/1756" id="everbutton-1806-1411616634-81">
+                                Pay Quebec City Final Payment
+                            </a>
+                        }
                     }
                 </div>
             </div>
