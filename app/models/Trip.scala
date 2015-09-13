@@ -12,12 +12,9 @@ import anorm.SqlParser._
 case class Trip (email: String,
                   name: String,
                   tripName: String,
-                  deposit: Int,
-                  finalPayment: Int,
-                  depositDate: Date,
-                  finalDate: Date,
-                  depositCheckoutId: String,
-                  finalCheckoutId: String)
+                  paymentType: String,
+                  date: String,
+                  checkoutId: String)
 
 object Trip {
   /**
@@ -27,14 +24,10 @@ object Trip {
     get[String]("trips.email") ~
     get[String]("trips.name") ~
     get[String]("trips.trip_name") ~
-    get[Int]("trips.deposit") ~
-    get[Int]("trips.final_payment") ~
-    get[Date]("trips.deposit_date") ~
-    get[Date]("trips.final_date") ~
-    get[String]("trips.deposit_checkout_id") ~
-    get[String]("trips.final_checkout_id")  map{
-      case email~name~tripName~deposit~finalPayment~depositDate~finalDate~depositCheckoutId~finalCheckoutId => Trip(email, name, tripName, deposit, finalPayment,
-        depositDate, finalDate, depositCheckoutId, finalCheckoutId)
+    get[String]("trips.payment_type") ~
+    get[String]("trips.date") ~
+    get[String]("trips.checkout_id")  map{
+      case email~name~tripName~paymentType~date~checkoutId => Trip(email, name, tripName, paymentType, date, checkoutId)
     }
   }
 
@@ -44,20 +37,16 @@ object Trip {
       SQL(
         """
           insert into trips values (
-            {email}, {name}, {tripName}, {deposit}, {finalPayment}, {depositDate}, {finalDate},
-            {depositCheckoutId}, {finalCheckoutId}
+            {email}, {name}, {tripName}, {paymentType}, {date}, {checkoutId}
           )
         """
       ).on(
           'email -> trip.email,
           'name -> trip.name,
           'tripName -> trip.tripName,
-          'deposit -> trip.deposit,
-          'finalPayment -> trip.finalPayment,
-          'depositDate -> trip.depositDate,
-          'finalDate -> trip.finalDate,
-          'depositCheckoutId -> trip.depositCheckoutId,
-          'finalCheckoutId -> trip.finalCheckoutId
+          'paymentType -> trip.paymentType,
+          'date -> trip.date,
+          'checkoutId -> trip.checkoutId
         ).executeUpdate()
       trip
     }

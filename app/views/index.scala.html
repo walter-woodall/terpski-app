@@ -1,9 +1,18 @@
-@(user: User)
+@(user: User)(implicit flash: Flash)
 
 @main(user) {
 <header>
     <div class="header-content">
         <div class="header-content-inner">
+            @flash.get("success").map { message =>
+                <p class="success" style="color: red;">
+                    @message
+                </p>
+            }@flash.get("error").map { message =>
+                <p class="success" style="color: red;">
+                    @message
+                </p>
+            }
             <h1>Come Join Us Fall 2015</h1>
             <hr>
             <p>Terpski is the largest student club on campus. Whether its shredding some gnar or throwing the best parties we always have a good time.</p>

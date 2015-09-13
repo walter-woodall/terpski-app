@@ -1,5 +1,8 @@
 package controllers
 
+import java.text.SimpleDateFormat
+import java.util.Calendar
+
 import play.api._
 import play.api.mvc._
 import play.api.data._
@@ -136,12 +139,16 @@ object Application extends Controller {
   def payment(tripName: String, paymentType: String, checkoutId: String) = Action {implicit request =>
     request.session.get("email").map { email =>
       User.findByEmail(email).map { user =>
-        Ok(html.trip4(null))
+        val format = new SimpleDateFormat("dd-MM-yyyy")
+        val currentDate = format.format(Calendar.getInstance().getTime)
+        val trip = new Trip(user.email, user.personalInfo.firstName + " " + user.personalInfo.lastName, tripName, paymentType, currentDate, checkoutId)
+        Trip.create(trip)
+        Redirect(routes.Application.index).flashing("success" -> "We received your payment")
       }.getOrElse{
-        Ok(html.trip4(null))
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact Terpski if you made a payment so we can verify manually")
       }
     }.getOrElse{
-      Ok(html.trip4(null))
+      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact Terpski if you made a payment so we can verify manually")
     }
   }
 
