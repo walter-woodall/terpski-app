@@ -145,10 +145,10 @@ object Application extends Controller {
         Trip.create(trip)
         Redirect(routes.Application.index).flashing("success" -> "We received your payment")
       }.getOrElse{
-        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact Terpski if you made a payment so we can verify manually")
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
       }
     }.getOrElse{
-      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact Terpski if you made a payment so we can verify manually")
+      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
     }
   }
 
@@ -158,10 +158,10 @@ object Application extends Controller {
         User.updateDeposit(user, checkoutId)
         Redirect(routes.Application.index).flashing("success" -> "We received your payment")
       }.getOrElse{
-        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact Terpski if you made a payment so we can verify manually")
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
       }
     }.getOrElse{
-      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact Terpski if you made a payment so we can verify manually")
+      Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
     }
   }
 
