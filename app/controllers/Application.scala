@@ -143,9 +143,9 @@ object Application extends Controller {
         val currentDate = format.format(Calendar.getInstance().getTime)
         val trip = new Trip(user.email, user.personalInfo.firstName + " " + user.personalInfo.lastName, tripName, paymentType, currentDate, checkoutId)
         Trip.create(trip)
-        Redirect(routes.Application.index).flashing("success" -> "We received your payment")
+        Redirect(routes.Application.index).flashing("success" -> "We received your payment").withSession("email" -> user.email)
       }.getOrElse{
-        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error").withSession("email" -> email)
       }
     }.getOrElse{
       Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
@@ -156,9 +156,9 @@ object Application extends Controller {
     request.session.get("email").map { email =>
       User.findByEmail(email).map { user =>
         User.updateDeposit(user, checkoutId)
-        Redirect(routes.Application.index).flashing("success" -> "We received your payment")
+        Redirect(routes.Application.index).flashing("success" -> "We received your payment").withSession("email" -> user.email)
       }.getOrElse{
-        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
+        Redirect(routes.Application.index).flashing("error" -> "We could not locate your account.Please contact walter.woodall.iv@gmail.com with the screen shot of your error").withSession("email" -> email)
       }
     }.getOrElse{
       Redirect(routes.Application.index).flashing("error" -> "We could not validate your session. Please contact walter.woodall.iv@gmail.com with the screen shot of your error")
